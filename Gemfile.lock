@@ -73,6 +73,7 @@ GEM
       bcrypt (~> 3.0)
       devise (> 3.5.2, < 5)
       rails (>= 4.2.0, < 6.1)
+    dotenv (2.7.6)
     erubi (1.9.0)
     ffi (1.13.1)
     globalid (0.4.2)
@@ -167,6 +168,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   devise_token_auth
+  dotenv
   listen (~> 3.2)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
