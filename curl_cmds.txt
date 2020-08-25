@@ -1,0 +1,8 @@
+# signup
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: fad0eaee-1310-477f-4d95-c9242e1fa252" -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -F "username=boggs" -F "password=foobarbar" -F "email=test@email.com" "http://api60k.herokuapp.com:3000/auth/"
+
+# signin
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 89906518-6c6d-4fa3-196e-401556bd5f58" -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -F "email=hello@boggs.xyz" -F "password=foobarbar" "http://api60k.herokuapp.com/auth/sign_in"
+
+# add score
+curl -X POST -H "authorization: bearer mxqXe_oFSlxBuFBTNL817A" -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -F "user_id=2" -F "point=12000" "http://api60k.herokuapp.com/scores"

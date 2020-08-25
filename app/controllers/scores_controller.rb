@@ -8,11 +8,12 @@ class ScoresController < ApplicationController
   end
 
   def create
-    @score = Score.new score_params
+    @score = current_user.scores.new score_params
 
     if @score.save
       render json: {
-        scores: Score.order(point: :desc)
+        message: "success",
+        scores: Score.order(point: :desc).limit(ENV['HISTORY_LIMITS'].to_i)
       }, status: :ok
     else
       render json: {
