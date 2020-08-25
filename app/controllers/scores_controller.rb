@@ -3,7 +3,7 @@ class ScoresController < ApplicationController
 
   def index
     render json: {
-      scores: Score.order(point: :desc)
+      scores: high_scores
     }, status: :ok
   end
 
@@ -13,7 +13,7 @@ class ScoresController < ApplicationController
     if @score.save
       render json: {
         message: "success",
-        scores: Score.order(point: :desc).limit(ENV['HISTORY_LIMITS'].to_i)
+        scores: high_scores
       }, status: :ok
     else
       render json: {
@@ -23,6 +23,12 @@ class ScoresController < ApplicationController
   end
 
   private
+
+  def high_scores
+    Score.order(point: :desc).limit(ENV['HISTORY_LIMITS'].to_i).map do |s|
+      {id: s.id, username: s.user.username, point: s.point, at: s.created_at}
+    end
+  end
 
   def score_params
     params.permit(:point)
